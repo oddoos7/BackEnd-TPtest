@@ -2,14 +2,15 @@ package kr.ac.kumoh.s20200081.BackEnd_TPtest.controller
 
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/message")
+@CrossOrigin(origins = ["https://webtptest.netlify.app"])
 class MessageController {
+
     @GetMapping
-    // TODO: React 주소 변경할 것
-    @CrossOrigin(origins = ["http://localhost:3000"])
+    fun getRoot() = mapOf("status" to "success")
+
+    @GetMapping("/api/message")
     fun getMessage() = mapOf("status" to "success")
 }
